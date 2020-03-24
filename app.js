@@ -49,5 +49,9 @@ app.event("team_join", async ({ event, context }) => {
   }
 });
 
-app.start(process.env.PORT || 8000);
-console.log("CC bot is active!");
+app.message('badger', ({ say }) => say('Badgers? BADGERS? WE DON’T NEED NO STINKIN BADGERS'));
+
+(async () => {
+  const server = await app.start(process.env.PORT || 3000);
+  console.log('⚡️ CC app is running!', server.address());
+})();
